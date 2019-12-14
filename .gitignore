@@ -1,3 +1,5 @@
+/node
+/phantomjs-prebuilt@2.1.16
 /jet_components
 /node_modules
 /bower_components
