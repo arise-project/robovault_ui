@@ -50,20 +50,28 @@
   );
 }());
 
-require(['ojs/ojbootstrap', 'knockout', 'ojs/ojknockout'],
-  function (Bootstrap) {
-    Bootstrap.whenDocumentReady().then(
-      function () {
-        function init() {
-        }
 
-        // If running in a hybrid (e.g. Cordova) environment, we need to wait for the deviceready
-        // event before executing any code that might interact with Cordova APIs or plugins.
-        if (document.body.classList.contains('oj-hybrid')) {
-          document.addEventListener('deviceready', init);
-        } else {
-          init();
-        }
-      });
+require(['jquery', 'knockout', 'ojs/ojknockout', 'ojs/ojmodule', 'ojs/ojbutton'],
+          
+function($, ko)
+{
+  function SimpleModuleModel()
+  {
+    this.currentModule = ko.observable("second");
+    var self = this;
+    this.modulePath = ko.pureComputed(
+      function()
+      {
+        console.log(self.currentModule());
+        return ('simple/' + self.currentModule());
+      }
+    );
   }
-);
+  
+  
+  $(function() 
+  {
+    ko.applyBindings(new SimpleModuleModel(), document.getElementById('moduleDemo'));
+  });
+
+});

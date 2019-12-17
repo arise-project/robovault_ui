@@ -37,7 +37,29 @@
     
   </head>
   <body>
-    <h1>Test</h1>
+    <div id="moduleDemo">
+      <div class="oj-buttonset-width-auto" data-bind="ojComponent: {component: 'ojButtonset', checked: currentModule}">
+        <label for="sv1">View One</label>                               
+        <input type="radio" name="modules" id="sv1" value="first"/>
+        
+        <label for="sv2">View Two</label>                               
+        <input type="radio" name="modules" id="sv2" value="second"/>
+        
+        <label for="sv3">View Three</label>                               
+        <input type="radio" name="modules" id="sv3" value="third"/>
+    
+      </div>
+      
+      <p>
+      The inserted module is below
+      </p>
+      
+      <div data-bind="ojModule: modulePath" style="background-color:aliceblue">
+      </div>
+    
+      
+    </div>
+    
     <script type="text/javascript" src="js/libs/require/require.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
