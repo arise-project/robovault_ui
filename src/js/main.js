@@ -10,9 +10,9 @@
  * Example of Require.js boostrap javascript
  */
 
- // The UserAgent is used to detect IE11. Only IE11 requires ES5.
+// The UserAgent is used to detect IE11. Only IE11 requires ES5.
 (function () {
-  
+
   function _ojIsIE11() {
     var nAgt = navigator.userAgent;
     return nAgt.indexOf('MSIE') !== -1 || !!nAgt.match(/Trident.*rv:11./);
@@ -42,8 +42,8 @@
         'css': 'libs/require-css/css',
         'touchr': 'libs/touchr/touchr',
         'persist': '@samplesjsloc@/persist/debug',
-        'corejs' : 'libs/corejs/shim',
-        'regenerator-runtime' : 'libs/regenerator-runtime/runtime'
+        'corejs': 'libs/corejs/shim',
+        'regenerator-runtime': 'libs/regenerator-runtime/runtime'
       }
       // endinjector
     }
@@ -52,26 +52,22 @@
 
 
 require(['jquery', 'knockout', 'ojs/ojknockout', 'ojs/ojmodule', 'ojs/ojbutton'],
-          
-function($, ko)
-{
-  function SimpleModuleModel()
-  {
-    this.currentModule = ko.observable("second");
-    var self = this;
-    this.modulePath = ko.pureComputed(
-      function()
-      {
-        console.log(self.currentModule());
-        return ('simple/' + self.currentModule());
-      }
-    );
-  }
-  
-  
-  $(function() 
-  {
-    ko.applyBindings(new SimpleModuleModel(), document.getElementById('moduleDemo'));
-  });
 
-});
+  function ($, ko) {
+    function SimpleModuleModel() {
+      this.currentModule = ko.observable("login");
+      var self = this;
+      this.modulePath = ko.pureComputed(
+        function () {
+          console.log(self.currentModule());
+          return ('simple/' + self.currentModule());
+        }
+      );
+    }
+
+
+    $(function () {
+      ko.applyBindings(new SimpleModuleModel(), document.getElementById('moduleDemo'));
+    });
+
+  });

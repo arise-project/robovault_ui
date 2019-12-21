@@ -1,6 +1,5 @@
 define(
-  function()
-  {
-    return {testVal: 'LOGIN'};  
+  function () {
+    return { testVal: 'LOGIN' };
   }
- );
+);
