@@ -51,7 +51,29 @@
 }());
 
 
-require(['jquery', 'knockout', 'ojs/ojknockout', 'ojs/ojmodule', 'ojs/ojbutton'],
+require([
+  'jquery', 
+  'knockout',
+  'ojs/ojknockout',
+  'ojs/ojmodule',
+  'ojs/ojbutton', 
+  'ojs/ojbootstrap', 
+  'ojs/ojarraydataprovider', 
+  'ojs/ojconverterutils-i18n',
+  'ojs/ojinputtext', 
+  'ojs/ojinputnumber',
+  'ojs/ojradioset', 
+  'ojs/ojcheckboxset',
+  'ojs/ojselectcombobox',
+  'ojs/ojselectsingle',
+  'ojs/ojdatetimepicker',
+  'ojs/ojswitch',
+  'ojs/ojslider',
+  'ojs/ojcolorspectrum',
+  'ojs/ojcolorpalette',
+  'ojs/ojlabel',
+  'ojs/ojformlayout',
+  'ojs/ojlabelvalue'],
 
   function ($, ko) {
     function SimpleModuleModel() {
@@ -59,7 +81,6 @@ require(['jquery', 'knockout', 'ojs/ojknockout', 'ojs/ojmodule', 'ojs/ojbutton']
       var self = this;
       this.modulePath = ko.pureComputed(
         function () {
-          console.log(self.currentModule());
           return ('simple/' + self.currentModule());
         }
       );
