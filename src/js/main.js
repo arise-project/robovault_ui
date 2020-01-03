@@ -73,7 +73,10 @@ require([
   'ojs/ojcolorpalette',
   'ojs/ojlabel',
   'ojs/ojformlayout',
-  'ojs/ojlabelvalue'],
+  'ojs/ojlabelvalue',
+  'ojs/ojresponsiveutils', 
+  'ojs/ojresponsiveknockoututils', 
+  'ojs/ojmessaging'],
 
   function ($, ko) {
     function SimpleModuleModel() {

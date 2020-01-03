@@ -1,6 +1,61 @@
 <p>
-    registration
+    Регистрация
 </p>
-<p>
-    The value from the View Model is: <span data-bind="text: testVal"></span>
-</p>
+<div>
+    <oj-label for="user">Пользователь</oj-label>
+    <oj-input-text id="user" value='login'></oj-input-text>
+</div>
+
+<div>
+    <oj-label for="password">Пароль</oj-label>
+    <oj-input-password id="password" placeholder='password'></oj-input-password>
+</div>
+
+<div>
+    <oj-label for="password_again">Пароль еще раз</oj-label>
+    <oj-input-password id="password_again" placeholder='password again'></oj-input-password>
+</div>
+
+<div>
+    <oj-label for="email">Почта</oj-label>
+    <oj-input-text id="email" value='email'></oj-input-text>
+</div>
+
+<div>
+    <oj-label for="phone">Телефон</oj-label>
+    <oj-input-text id="phone" value='phone'></oj-input-text>
+</div>
+
+<div>
+    <oj-label for="user">Дополнительный Телефон</oj-label>
+    <oj-input-text id="phone_second" value='second phone'></oj-input-text>
+</div>
+
+<div>
+    <oj-label for="city">Город</oj-label>
+    <oj-input-text id="city" value='city'></oj-input-text>
+</div>
+
+<div>
+    <oj-label for="secret">Секретная фраза</oj-label>
+    <oj-input-password id="secret" placeholder='secret'></oj-input-password>
+</div>
+
+<div>
+    <oj-label for="citezenship">Я являюсь гражданином Украины</oj-label>
+    <oj-switch id="citezenship" value="false" label-hint="Я являюсь гражданином Украины"></oj-switch>
+</div>
+
+
+<div>
+    <oj-label for="service_agrement">Я соглашаюсь с условиями сервиса</oj-label>
+    <oj-switch id="service_agrement" value="false" label-hint="Я соглашаюсь с условиями сервиса"></oj-switch>
+</div>
+
+<oj-button>
+    <span>Зарегестрироваться</span> 
+</oj-button>
+
+<oj-button chroming="borderless">
+        <span>Закрыть</span> 
+</oj-button>
