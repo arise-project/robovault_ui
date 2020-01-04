@@ -76,7 +76,13 @@ require([
   'ojs/ojlabelvalue',
   'ojs/ojresponsiveutils', 
   'ojs/ojresponsiveknockoututils', 
-  'ojs/ojmessaging'],
+  'ojs/ojmessaging',
+  'ojs/ojmodel', 
+  'ojs/ojknockouttemplateutils', 
+  'ojs/ojcollectiondatagriddatasource',
+  'ojs/ojconverter-datetime', 
+  'ojs/ojconverter-number', 
+  'ojs/ojdatagrid'],
 
   function ($, ko) {
     function SimpleModuleModel() {
