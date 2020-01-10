@@ -1,5 +1,5 @@
 define(
   function () {
-    return { testVal: 'RECIPIENT' };
+    return { testVal: 'RECIPIENT', secondVal: 'Some Val' };
   }
 );
