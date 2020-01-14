@@ -1,6 +1,32 @@
 <h1>
     document
 </h1>
-<p>
-    The value from the View Model is: <span data-bind="text: testVal"></span>
-</p>
+
+<div>
+    <oj-label for="name">Название:</oj-label>
+    <oj-input-text id="name" value='Название документа'></oj-input-text>
+</div>
+<div>
+    <oj-label for="explain">Пояснение:</oj-label>
+    <oj-input-text id="explain" value='Пояснение'></oj-input-text>
+</div>
+
+<div>
+    <oj-label for="docFile">Файл документа</oj-label Текст>
+        <oj-file-picker accept="[[acceptArr]]" id="docFile"
+        selection-mode="single"
+        on-oj-select='[[selectListener]]'>
+</oj-file-picker>
+
+</div>
+
+<div>
+    <oj-button chroming="solid">
+        <span>Вложить</span> 
+    </oj-button>
+    
+    
+    <oj-button chroming="borderless">
+        <span>Отмена</span> 
+    </oj-button>
+</div>
