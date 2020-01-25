@@ -82,7 +82,8 @@ require([
   'ojs/ojcollectiondatagriddatasource',
   'ojs/ojconverter-datetime', 
   'ojs/ojconverter-number', 
-  'ojs/ojdatagrid'],
+  'ojs/ojdatagrid',
+  'ojs/ojconveyorbelt'],
 
   function ($, ko) {
     function SimpleModuleModel() {
@@ -98,6 +99,7 @@ require([
 
     $(function () {
       ko.applyBindings(new SimpleModuleModel(), document.getElementById('moduleDemo'));
+      
     });
 
   });
