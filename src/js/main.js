@@ -52,6 +52,7 @@
 
 
 require([
+  'ojs/ojcore',
   'jquery', 
   'knockout',
   'ojs/ojknockout',
@@ -83,14 +84,37 @@ require([
   'ojs/ojconverter-datetime', 
   'ojs/ojconverter-number', 
   'ojs/ojdatagrid',
-  'ojs/ojconveyorbelt'],
+  'ojs/ojconveyorbelt',
+  'ojs/ojrouter'],
 
-  function ($, ko) {
+  function(oj, $, ko){   
+    //https://blogs.oracle.com/geertjan/part-4:-routing-with-oracle-jet
+    var router = oj.Router.rootInstance;
+    router.configure(
+      {
+        'login': { label: 'Home', value: 'This is the Home Page.',
+        isDefault: true },
+        'widgets': { label: 'Page 1', value: 'This is the Page 1.' },
+        'registration': { label: 'Page 2', value: 'This is the Page 2.' },
+        'approval': { label: 'Page 3', value: 'This is the Page 3.' },
+        'profile': { label: 'Page 3', value: 'This is the Page 3.' },
+        'recipients': { label: 'Page 3', value: 'This is the Page 3.' },
+        'recipient': { label: 'Page 3', value: 'This is the Page 3.' },
+        'note': { label: 'Page 3', value: 'This is the Page 3.' },
+        'document': { label: 'Page 3', value: 'This is the Page 3.' },
+        'documents': { label: 'Page 3', value: 'This is the Page 3.' },
+        'notes': { label: 'Page 3', value: 'This is the Page 3.' },
+        'calendar': { label: 'Page 3', value: 'This is the Page 3.' },
+        'subscription': { label: 'Page 3', value: 'This is the Page 3.' }
+      });
+    
     function SimpleModuleModel() {
+      this.router = router;
       this.currentModule = ko.observable("login");
       var self = this;
       this.modulePath = ko.pureComputed(
         function () {
+          self.router.go(self.currentModule());
           return ('simple/' + self.currentModule());
         }
       );
