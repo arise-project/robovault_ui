@@ -10,9 +10,9 @@
  * Example of Require.js boostrap javascript
  */
 
-// The UserAgent is used to detect IE11. Only IE11 requires ES5.
+ // The UserAgent is used to detect IE11. Only IE11 requires ES5.
 (function () {
-
+  
   function _ojIsIE11() {
     var nAgt = navigator.userAgent;
     return nAgt.indexOf('MSIE') !== -1 || !!nAgt.match(/Trident.*rv:11./);
@@ -41,89 +41,46 @@
         'proj4': 'libs/proj4js/dist/proj4-src',
         'css': 'libs/require-css/css',
         'touchr': 'libs/touchr/touchr',
-        'persist': '@samplesjsloc@/persist/debug',
-        'corejs': 'libs/corejs/shim',
-        'regenerator-runtime': 'libs/regenerator-runtime/runtime'
+        'corejs' : 'libs/corejs/shim',
+        'regenerator-runtime' : 'libs/regenerator-runtime/runtime'
       }
       // endinjector
     }
   );
 }());
 
+/**
+ * A top-level require call executed by the Application.
+ * Although 'knockout' would be loaded in any case (it is specified as a  dependency
+ * by some modules), we are listing it explicitly to get the reference to the 'ko'
+ * object in the callback
+ */
+require(['ojs/ojbootstrap', 'knockout', 'appController', 'ojs/ojlogger', 'ojs/ojrouter', 'ojs/ojknockout',
+  'ojs/ojmodule', 'ojs/ojnavigationlist', 'ojs/ojbutton', 'ojs/ojtoolbar'],
+  function (Bootstrap, ko, app, Logger, Router) { // this callback gets executed when all required modules are loaded
+    Bootstrap.whenDocumentReady().then(
+      function() {
 
-require([
-  'ojs/ojcore',
-  'jquery', 
-  'knockout',
-  'ojs/ojknockout',
-  'ojs/ojmodule',
-  'ojs/ojbutton', 
-  'ojs/ojbootstrap', 
-  'ojs/ojarraydataprovider', 
-  'ojs/ojconverterutils-i18n',
-  'ojs/ojinputtext', 
-  'ojs/ojinputnumber',
-  'ojs/ojradioset', 
-  'ojs/ojcheckboxset',
-  'ojs/ojselectcombobox',
-  'ojs/ojselectsingle',
-  'ojs/ojdatetimepicker',
-  'ojs/ojswitch',
-  'ojs/ojslider',
-  'ojs/ojcolorspectrum',
-  'ojs/ojcolorpalette',
-  'ojs/ojlabel',
-  'ojs/ojformlayout',
-  'ojs/ojlabelvalue',
-  'ojs/ojresponsiveutils', 
-  'ojs/ojresponsiveknockoututils', 
-  'ojs/ojmessaging',
-  'ojs/ojmodel', 
-  'ojs/ojknockouttemplateutils', 
-  'ojs/ojcollectiondatagriddatasource',
-  'ojs/ojconverter-datetime', 
-  'ojs/ojconverter-number', 
-  'ojs/ojdatagrid',
-  'ojs/ojconveyorbelt',
-  'ojs/ojrouter'],
+        function init() {
+            Router.sync().then(
+              function () {
+                app.loadModule();
+                // Bind your ViewModel for the content of the whole page body.
+                ko.applyBindings(app, document.getElementById('globalBody'));
+              },
+              function (error) {
+                Logger.error('Error in root start: ' + error.message);
+              }
+            );
+          }
 
-  function(oj, $, ko){   
-    //https://blogs.oracle.com/geertjan/part-4:-routing-with-oracle-jet
-    var router = oj.Router.rootInstance;
-    router.configure(
-      {
-        'login': { label: 'Home', value: 'This is the Home Page.',
-        isDefault: true },
-        'widgets': { label: 'Page 1', value: 'This is the Page 1.' },
-        'registration': { label: 'Page 2', value: 'This is the Page 2.' },
-        'approval': { label: 'Page 3', value: 'This is the Page 3.' },
-        'profile': { label: 'Page 3', value: 'This is the Page 3.' },
-        'recipients': { label: 'Page 3', value: 'This is the Page 3.' },
-        'recipient': { label: 'Page 3', value: 'This is the Page 3.' },
-        'note': { label: 'Page 3', value: 'This is the Page 3.' },
-        'document': { label: 'Page 3', value: 'This is the Page 3.' },
-        'documents': { label: 'Page 3', value: 'This is the Page 3.' },
-        'notes': { label: 'Page 3', value: 'This is the Page 3.' },
-        'calendar': { label: 'Page 3', value: 'This is the Page 3.' },
-        'subscription': { label: 'Page 3', value: 'This is the Page 3.' }
-      });
-    
-    function SimpleModuleModel() {
-      this.router = router;
-      this.currentModule = ko.observable("login");
-      var self = this;
-      this.modulePath = ko.pureComputed(
-        function () {
-          self.router.go(self.currentModule());
-          return ('simple/' + self.currentModule());
-        }
-      );
-    }
-
-
-    $(function () {
-      ko.applyBindings(new SimpleModuleModel(), document.getElementById('moduleDemo'));
-      
-    });
-
-  });
+          // If running in a hybrid (e.g. Cordova) environment, we need to wait for the deviceready
+          // event before executing any code that might interact with Cordova APIs or plugins.
+          if (document.body.classList.contains('oj-hybrid')) {
+            document.addEventListener("deviceready", init);
+          } else {
+            init();
+          }
+        });
+  }
+);
