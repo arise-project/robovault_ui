@@ -1,55 +1,42 @@
-/**
- * @license
- * Copyright (c) 2014, 2019, Oracle and/or its affiliates.
- * The Universal Permissive License (UPL), Version 1.0
- * @ignore
- */
-/*
- * Your customer ViewModel code goes here
- */
-define(['accUtils'],
- function(accUtils) {
-
-    function CustomerViewModel() {
-      var self = this;
-      // Below are a set of the ViewModel methods invoked by the oj-module component.
-      // Please reference the oj-module jsDoc for additional information.
-
-      /**
-       * Optional ViewModel method invoked after the View is inserted into the
-       * document DOM.  The application can put logic that requires the DOM being
-       * attached here.
-       * This method might be called multiple times - after the View is created
-       * and inserted into the DOM and after the View is reconnected
-       * after being disconnected.
-       */
-      self.connected = function() {
-        accUtils.announce('Customers page loaded.');
-        document.title = "Customers";
-        // Implement further logic if needed
+define(['knockout', 'ojs/ojbootstrap', 'ojs/ojmodel', 'ojs/ojknockouttemplateutils', 'ojs/ojcollectiondatagriddatasource',
+    'ojs/ojconverter-datetime', 'ojs/ojconverter-number', 'ojs/ojknockout', 'ojs/ojdatagrid'],
+  function (ko, Bootstrap, Model, KnockoutTemplateUtils,
+    collectionModule, DateTimeConverter, NumberConverter) {
+    var ViewModel = function () {
+      this.KnockoutTemplateUtils = KnockoutTemplateUtils;
+      var dateOptions = { formatType: 'date', dateFormat: 'medium' };
+      this.dateConverter = new DateTimeConverter.IntlDateTimeConverter(dateOptions);
+  
+      var salaryOptions =
+        {
+          style: 'currency',
+          currency: 'USD',
+          currencyDisplay: 'symbol'
+        };
+      this.salaryConverter = new NumberConverter.IntlNumberConverter(
+              salaryOptions);
+  
+      var collection = new Model.Collection(null, {
+        url: 'customers.json'
+      });
+  
+      this.dataSource = new collectionModule.CollectionDataGridDataSource(collection,
+              { rowHeader: 'CUSTOMER_ID' }
+          );
+        console.log(1);
+      this.getCellClassName = function (cellContext) {
+        var key = cellContext.keys.column;
+        if (key === 'SALARY') {
+          return 'oj-helper-justify-content-right';
+        } else if (key === 'FIRST_NAME' ||
+                  key === 'LAST_NAME' ||
+                  key === 'EMAIL' ||
+                  key === 'HIRE_DATE') {
+          return 'oj-sm-justify-content-flex-start';
+        }
+        return '';
       };
-
-      /**
-       * Optional ViewModel method invoked after the View is disconnected from the DOM.
-       */
-      self.disconnected = function() {
-        // Implement if needed
-      };
-
-      /**
-       * Optional ViewModel method invoked after transition to the new View is complete.
-       * That includes any possible animation between the old and the new View.
-       */
-      self.transitionCompleted = function() {
-        // Implement if needed
-      };
-    }
-
-    /*
-     * Returns an instance of the ViewModel providing one instance of the ViewModel. If needed,
-     * return a constructor for the ViewModel so that the ViewModel is constructed
-     * each time the view is displayed.
-     */
-    return CustomerViewModel;
+    };
+    return ViewModel;
   }
 );
