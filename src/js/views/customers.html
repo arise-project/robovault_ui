@@ -6,6 +6,18 @@
 
   <h1>Customers Content Area</h1>
   
+  <oj-navigation-list id="menu" drill-mode="none" selection="{{router.stateId}}" on-oj-before-select="[[selectHandler]]">
+    <ul>
+      <oj-bind-for-each data="[[router.states]]">
+        <template>
+          <li :id="[[$current.data.id]]">
+            <a><oj-bind-text value="[[$current.data.label]]"></oj-bind-text></a>
+          </li>
+        </template>
+      </oj-bind-for-each>
+    </ul>
+  </oj-navigation-list>
+  
   <div>
     <oj-data-grid id="datagrid" 
     style="width:100%;height:400px;max-width:777px;" 
