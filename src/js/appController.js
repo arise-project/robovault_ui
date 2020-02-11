@@ -7,7 +7,7 @@
 /*
  * Your application specific code will go here
  */
-define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/ojresponsiveknockoututils', 'ojs/ojrouter', 'ojs/ojarraydataprovider', 'ojs/ojknockouttemplateutils', 'ojs/ojmodule-element', 'ojs/ojknockout', 'ojs/ojinputtext'],
+define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/ojresponsiveknockoututils', 'ojs/ojrouter', 'ojs/ojarraydataprovider', 'ojs/ojknockouttemplateutils', 'ojs/ojmodule-element', 'ojs/ojknockout', 'ojs/ojinputtext', 'ojs/ojpictochart', 'ojs/ojlegend'],
   function(ko, moduleUtils, ResponsiveUtils, ResponsiveKnockoutUtils, Router, ArrayDataProvider, KnockoutTemplateUtils) {
      function ControllerViewModel() {
         var self = this;
@@ -89,6 +89,8 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
        {name: 'Registration', id: 'registration',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
        {name: 'Subscription', id: 'subscription',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
+       {name: 'Calendar', id: 'calendar',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'}
       ];
       self.navDataProvider = new ArrayDataProvider(navData, {keyAttributes: 'id'});
