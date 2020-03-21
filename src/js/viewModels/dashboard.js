@@ -8,7 +8,7 @@
  * Your dashboard ViewModel code goes here
  */
 define(['accUtils'],
- function(accUtils) {
+  function (accUtils) {
 
     function DashboardViewModel() {
       var self = this;
@@ -23,7 +23,7 @@ define(['accUtils'],
        * and inserted into the DOM and after the View is reconnected
        * after being disconnected.
        */
-      self.connected = function() {
+      self.connected = function () {
         accUtils.announce('Dashboard page loaded.');
         document.title = "Dashboard";
         // Implement further logic if needed
@@ -32,7 +32,7 @@ define(['accUtils'],
       /**
        * Optional ViewModel method invoked after the View is disconnected from the DOM.
        */
-      self.disconnected = function() {
+      self.disconnected = function () {
         // Implement if needed
       };
 
@@ -40,7 +40,7 @@ define(['accUtils'],
        * Optional ViewModel method invoked after transition to the new View is complete.
        * That includes any possible animation between the old and the new View.
        */
-      self.transitionCompleted = function() {
+      self.transitionCompleted = function () {
         // Implement if needed
       };
     }

@@ -25,7 +25,7 @@ define([],
       if (manner == undefined || !validAriaLiveValues.includes(manner)) {
         manner = 'polite';
       }
-      
+
       var params = {
         'bubbles': true,
         'detail': { 'message': message, 'manner': manner }

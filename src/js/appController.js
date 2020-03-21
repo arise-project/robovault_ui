@@ -8,46 +8,46 @@
  * Your application specific code will go here
  */
 define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/ojresponsiveknockoututils', 'ojs/ojrouter', 'ojs/ojarraydataprovider', 'ojs/ojknockouttemplateutils', 'ojs/ojmodule-element', 'ojs/ojknockout', 'ojs/ojinputtext', 'ojs/ojpictochart', 'ojs/ojlegend'],
-  function(ko, moduleUtils, ResponsiveUtils, ResponsiveKnockoutUtils, Router, ArrayDataProvider, KnockoutTemplateUtils) {
-     function ControllerViewModel() {
-        var self = this;
+  function (ko, moduleUtils, ResponsiveUtils, ResponsiveKnockoutUtils, Router, ArrayDataProvider, KnockoutTemplateUtils) {
+    function ControllerViewModel() {
+      var self = this;
 
-        self.KnockoutTemplateUtils = KnockoutTemplateUtils;
+      self.KnockoutTemplateUtils = KnockoutTemplateUtils;
 
-        // Handle announcements sent when pages change, for Accessibility.
-        self.manner = ko.observable('polite');
-        self.message = ko.observable();
-        document.getElementById('globalBody').addEventListener('announce', announcementHandler, false);
+      // Handle announcements sent when pages change, for Accessibility.
+      self.manner = ko.observable('polite');
+      self.message = ko.observable();
+      document.getElementById('globalBody').addEventListener('announce', announcementHandler, false);
 
-        function announcementHandler(event) {
-          setTimeout(function() {
-            self.message(event.detail.message);
-            self.manner(event.detail.manner);
-          }, 200);
-        };
+      function announcementHandler(event) {
+        setTimeout(function () {
+          self.message(event.detail.message);
+          self.manner(event.detail.manner);
+        }, 200);
+      };
 
       // Media queries for repsonsive layouts
       var smQuery = ResponsiveUtils.getFrameworkQuery(ResponsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY);
       self.smScreen = ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
 
-       // Router setup
-       self.router = Router.rootInstance;
-       self.router.configure({
-         'login': {label: 'Login', isDefault: true},
-         'approval': {label: 'Approval'},
-         'calendar': {label: 'Calendar'},
-         'recipients_selector': {label: 'Recipients'},
-         'document': {label: 'Document'},
-         'documents': {label: 'Documents'},
-         'incidents': {label: 'Incidents'},
-         'note': {label: 'Note'},
-         'notes': {label: 'Notes'},
-         'profile': {label: 'Profile'},
-         'recipient': {label: 'Recipient'},
-         'recipients': {label: 'Recipients'},
-         'registration': {label: 'Registration'},
-         'subscription': {label: 'Subscription'}
-       });
+      // Router setup
+      self.router = Router.rootInstance;
+      self.router.configure({
+        'login': { label: 'Login', isDefault: true },
+        'approval': { label: 'Approval' },
+        'calendar': { label: 'Calendar' },
+        'recipients_selector': { label: 'Recipients' },
+        'document': { label: 'Document' },
+        'documents': { label: 'Documents' },
+        'incidents': { label: 'Incidents' },
+        'note': { label: 'Note' },
+        'notes': { label: 'Notes' },
+        'profile': { label: 'Profile' },
+        'recipient': { label: 'Recipient' },
+        'recipients': { label: 'Recipients' },
+        'registration': { label: 'Registration' },
+        'subscription': { label: 'Subscription' }
+      });
       Router.defaults['urlAdapter'] = new Router.urlParamAdapter();
 
       self.loadModule = function () {
@@ -55,43 +55,37 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
           var name = self.router.moduleConfig.name();
           var viewPath = 'views/' + name + '.html';
           var modelPath = 'viewModels/' + name;
-          return moduleUtils.createConfig({ viewPath: viewPath,
-            viewModelPath: modelPath, params: { parentRouter: self.router } });
+          return moduleUtils.createConfig({
+            viewPath: viewPath,
+            viewModelPath: modelPath, params: { parentRouter: self.router }
+          });
         });
       };
 
       // Navigation setup
       var navData = [
-      {name: 'Login', id: 'login',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
-      {name: 'Approval', id: 'approval',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
-      {name: 'Calendar', id: 'calendar',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-garbage-icon-24'},
-      {name: 'Recipients', id: 'recipients_selector',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
-       {name: 'Document', id: 'document',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
-      {name: 'Documents', id: 'documents',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
-      {name: 'Incidents', id: 'incidents',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
-      {name: 'Note', id: 'note',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
-       {name: 'Notes', id: 'notes',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
-       {name: 'Profile', id: 'profile',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
-       {name: 'Recipient', id: 'recipient',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
-       {name: 'Recipients', id: 'recipients',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
-       {name: 'Registration', id: 'registration',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
-       {name: 'Subscription', id: 'subscription',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'}
+        {
+          name: 'Calendar', id: 'calendar',
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-garbage-icon-24'
+        },
+        {
+          name: 'Incidents', id: 'incidents',
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'
+        },
+        {
+          name: 'Recipients', id: 'recipients_selector',
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'
+        },
+        {
+          name: 'Documents', id: 'documents',
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'
+        },
+        {
+          name: 'Notes', id: 'notes',
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'
+        }
       ];
-      self.navDataProvider = new ArrayDataProvider(navData, {keyAttributes: 'id'});
+      self.navDataProvider = new ArrayDataProvider(navData, { keyAttributes: 'id' });
 
       // Header
       // Application Name used in Branding Area
@@ -115,10 +109,10 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
 
       self.userMenuHandler = function (event) {
         event.preventDefault();
-          self.router.go(event.target.id);
+        self.router.go(event.target.id);
       }
-     }
+    }
 
-     return new ControllerViewModel();
+    return new ControllerViewModel();
   }
 );

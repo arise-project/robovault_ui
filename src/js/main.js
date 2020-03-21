@@ -10,9 +10,9 @@
  * Example of Require.js boostrap javascript
  */
 
- // The UserAgent is used to detect IE11. Only IE11 requires ES5.
+// The UserAgent is used to detect IE11. Only IE11 requires ES5.
 (function () {
-  
+
   function _ojIsIE11() {
     var nAgt = navigator.userAgent;
     return nAgt.indexOf('MSIE') !== -1 || !!nAgt.match(/Trident.*rv:11./);
@@ -41,8 +41,8 @@
         'proj4': 'libs/proj4js/dist/proj4-src',
         'css': 'libs/require-css/css',
         'touchr': 'libs/touchr/touchr',
-        'corejs' : 'libs/corejs/shim',
-        'regenerator-runtime' : 'libs/regenerator-runtime/runtime'
+        'corejs': 'libs/corejs/shim',
+        'regenerator-runtime': 'libs/regenerator-runtime/runtime'
       }
       // endinjector
     }
@@ -59,28 +59,28 @@ require(['ojs/ojbootstrap', 'knockout', 'appController', 'ojs/ojlogger', 'ojs/oj
   'ojs/ojmodule', 'ojs/ojnavigationlist', 'ojs/ojbutton', 'ojs/ojtoolbar', 'ojs/ojpictochart', 'ojs/ojlegend'],
   function (Bootstrap, ko, app, Logger, Router) { // this callback gets executed when all required modules are loaded
     Bootstrap.whenDocumentReady().then(
-      function() {
+      function () {
 
         function init() {
-            Router.sync().then(
-              function () {
-                app.loadModule();
-                // Bind your ViewModel for the content of the whole page body.
-                ko.applyBindings(app, document.getElementById('globalBody'));
-              },
-              function (error) {
-                Logger.error('Error in root start: ' + error.message);
-              }
-            );
-          }
+          Router.sync().then(
+            function () {
+              app.loadModule();
+              // Bind your ViewModel for the content of the whole page body.
+              ko.applyBindings(app, document.getElementById('globalBody'));
+            },
+            function (error) {
+              Logger.error('Error in root start: ' + error.message);
+            }
+          );
+        }
 
-          // If running in a hybrid (e.g. Cordova) environment, we need to wait for the deviceready
-          // event before executing any code that might interact with Cordova APIs or plugins.
-          if (document.body.classList.contains('oj-hybrid')) {
-            document.addEventListener("deviceready", init);
-          } else {
-            init();
-          }
-        });
+        // If running in a hybrid (e.g. Cordova) environment, we need to wait for the deviceready
+        // event before executing any code that might interact with Cordova APIs or plugins.
+        if (document.body.classList.contains('oj-hybrid')) {
+          document.addEventListener("deviceready", init);
+        } else {
+          init();
+        }
+      });
   }
 );
