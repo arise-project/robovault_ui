@@ -36,15 +36,17 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
         'login': { label: 'Login', isDefault: true },
         'approval': { label: 'Approval' },
         'calendar': { label: 'Calendar' },
-        'recipients_selector': { label: 'Recipients' },
-        'document': { label: 'Document' },
+        'documents_selector': { label: 'Documents' },
         'documents': { label: 'Documents' },
+        'document': { label: 'Document' },
         'incidents': { label: 'Incidents' },
-        'note': { label: 'Note' },
+        'notes_selector': { label: 'Notes' },
         'notes': { label: 'Notes' },
+        'note': { label: 'Note' },
         'profile': { label: 'Profile' },
-        'recipient': { label: 'Recipient' },
+        'recipients_selector': { label: 'Recipients' },
         'recipients': { label: 'Recipients' },
+        'recipient': { label: 'Recipient' },
         'registration': { label: 'Registration' },
         'subscription': { label: 'Subscription' }
       });
@@ -77,11 +79,11 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
           iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'
         },
         {
-          name: 'Documents', id: 'documents',
+          name: 'Documents', id: 'documents_selector',
           iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-catalog-icon-24'
         },
         {
-          name: 'Notes', id: 'notes',
+          name: 'Notes', id: 'notes_selector',
           iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-library-icon-24'
         }
       ];

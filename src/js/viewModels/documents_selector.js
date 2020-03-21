@@ -43,14 +43,14 @@ define([
 
 
       var parentRouter = Router.rootInstance;
-      this.router = parentRouter.getChildRouter('recipients') || parentRouter.createChildRouter('recipients')
+      this.router = parentRouter.getChildRouter('docuemnts') || parentRouter.createChildRouter('docuemnts')
         .configure({
-          'recipients': {
+          'documents': {
             label: 'All',
             canExit: true
           },
-          'recipient': {
-            label: 'Add recipient',
+          'document': {
+            label: 'Add document',
             canExit: true
           }
         });
@@ -102,7 +102,7 @@ define([
         }
       }
 
-      childRouter.go('recipients');
+      childRouter.go('documents');
 
     };
     return ViewModel;
