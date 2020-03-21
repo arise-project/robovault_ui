@@ -66,11 +66,11 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
       var navData = [
         {
           name: 'Calendar', id: 'calendar',
-          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-garbage-icon-24'
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-grid-icon-16'
         },
         {
           name: 'Incidents', id: 'incidents',
-          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'
         },
         {
           name: 'Recipients', id: 'recipients_selector',
@@ -78,11 +78,11 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
         },
         {
           name: 'Documents', id: 'documents',
-          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-catalog-icon-24'
         },
         {
           name: 'Notes', id: 'notes',
-          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-library-icon-24'
         }
       ];
       self.navDataProvider = new ArrayDataProvider(navData, { keyAttributes: 'id' });
