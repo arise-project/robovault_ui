@@ -23,22 +23,6 @@ define([
       var dateOptions = { formatType: 'date', dateFormat: 'medium' };
       this.dateConverter = new DateTimeConverter.IntlDateTimeConverter(dateOptions);
 
-      var chapters = {
-        'preface': 'Darn beamed hurriedly because banal more \
-giraffe shuffled and well rid placidly where hence or and and hound lantern cutely \
-instead inaudibly but demonstrable imitatively one regarding a where much fruitlessly \
-more depending goodness less as dear shark directed this one.',
-        'chapter1': 'Affectingly and yikes one that along \
-versus growled unwitting vulnerably fish far pouting otter some as this hamster \
-hatchet where amicably far deftly curtsied.',
-        'chapter2': 'More up mistaken for a kissed therefore \
-ahead thus on dear wow undertook flabbily less much far sourly impala resolutely and \
-and as overheard dachshund this.',
-        'chapter3': 'Reindeer up while the far darn falcon \
-concurrent iguana this strived unicorn hedgehog depending more lemming was swam \
-unlike prosperously regarding shameful when and extravagant that then cat contagious.'
-     };
-
      // An observable to hold the animation type.
      this.anim = ko.observable('None');
   
@@ -61,14 +45,12 @@ unlike prosperously regarding shameful when and extravagant that then cat contag
       var parentRouter = Router.rootInstance;
       this.router = parentRouter.getChildRouter('chapter') || parentRouter.createChildRouter('chapter')
       .configure({
-         'profile': {
+         'recipients': {
             label: 'All',
-            value: chapters['preface'],
             canExit: true
          },
          'recipient': {
             label: 'Add recipient',
-            value: chapters['chapter1'],
             canExit: true
          }
       });
@@ -118,6 +100,8 @@ unlike prosperously regarding shameful when and extravagant that then cat contag
            childRouter.go(event.detail.key);
         }
      }
+
+     childRouter.go('recipients');
 
       var salaryOptions =
         {

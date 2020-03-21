@@ -36,7 +36,7 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
          'login': {label: 'Login', isDefault: true},
          'approval': {label: 'Approval'},
          'calendar': {label: 'Calendar'},
-         'customers': {label: 'Customers'},
+         'recipients_selector': {label: 'Recipients'},
          'document': {label: 'Document'},
          'documents': {label: 'Documents'},
          'incidents': {label: 'Incidents'},
@@ -68,7 +68,7 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
       {name: 'Calendar', id: 'calendar',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
-      {name: 'Customers', id: 'customers',
+      {name: 'Recipients', id: 'recipients_selector',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
        {name: 'Document', id: 'document',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
@@ -89,8 +89,6 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
        {name: 'Registration', id: 'registration',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
        {name: 'Subscription', id: 'subscription',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
-       {name: 'Calendar', id: 'calendar',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'}
       ];
       self.navDataProvider = new ArrayDataProvider(navData, {keyAttributes: 'id'});
