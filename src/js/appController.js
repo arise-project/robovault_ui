@@ -67,9 +67,9 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
       {name: 'Approval', id: 'approval',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
       {name: 'Calendar', id: 'calendar',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-garbage-icon-24'},
       {name: 'Recipients', id: 'recipients_selector',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'},
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
        {name: 'Document', id: 'document',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
       {name: 'Documents', id: 'documents',
@@ -112,6 +112,11 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
         new footerLink('Terms Of Use', 'termsOfUse', 'http://www.oracle.com/us/legal/terms/index.html'),
         new footerLink('Your Privacy Rights', 'yourPrivacyRights', 'http://www.oracle.com/us/legal/privacy/index.html')
       ]);
+
+      self.userMenuHandler = function (event) {
+        event.preventDefault();
+          self.router.go(event.target.id);
+      }
      }
 
      return new ControllerViewModel();
