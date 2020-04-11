@@ -14,7 +14,7 @@
                     help-hints.definition="[[definition]]"
                     help.instruction="[[instruction]]"></oj-input-text> -->
 
-    <oj-input-text id="user" value='login'></oj-input-text>
+    <oj-input-text id="user" value='{{login}}'></oj-input-text>
 </div>
 
 <div>
@@ -28,13 +28,13 @@
         help-hints.definition="[[definition]]"
         help.instruction="[[instruction]]"></oj-input-password> -->
 
-    <oj-input-password id="password" placeholder='password'></oj-input-password>
+    <oj-input-password id="password" placeholder='password' value='{{password}}'></oj-input-password>
 </div>
 
-<oj-button>
+<oj-button on-click="[[clickListener_login]]">
     <span>Вход</span>
 </oj-button>
 
-<oj-button chroming="borderless">
+<oj-button chroming="borderless" on-click="[[clickListener_registration]]">
     <span>Зарегестрироваться</span>
 </oj-button>
