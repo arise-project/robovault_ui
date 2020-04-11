@@ -1,3 +1,5 @@
+// Artificial Renaissance itself 2019-2020. All rights reserved.
+
 define(['ojs/ojrouter', 'knockout', 'ojs/ojbootstrap', 'ojs/ojmodel', 'ojs/ojknockouttemplateutils',
   'ojs/ojarraydataprovider', 'ojs/ojknockout', 'ojs/ojpictochart', 'ojs/ojlegend'],
   function (Router, ko, Bootstrap, Model, KnockoutTemplateUtils, ArrayDataProvider) {

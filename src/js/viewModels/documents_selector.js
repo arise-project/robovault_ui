@@ -1,3 +1,5 @@
+// Artificial Renaissance itself 2019-2020. All rights reserved.
+
 define([
   'ojs/ojrouter',
   'knockout',

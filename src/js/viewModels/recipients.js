@@ -1,3 +1,5 @@
+// Artificial Renaissance itself 2019-2020. All rights reserved.
+
 define(['knockout', 'ojs/ojbootstrap', 'ojs/ojmodel', 'ojs/ojknockouttemplateutils', 'ojs/ojcollectiondatagriddatasource',
   'ojs/ojconverter-datetime', 'ojs/ojconverter-number', 'ojs/ojknockout', 'ojs/ojdatagrid'],
   function (ko, Bootstrap, Model, KnockoutTemplateUtils,
