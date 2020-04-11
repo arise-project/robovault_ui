@@ -1,12 +1,3 @@
-/**
- * @license
- * Copyright (c) 2014, 2019, Oracle and/or its affiliates.
- * The Universal Permissive License (UPL), Version 1.0
- * @ignore
- */
-/*
- * Your application specific code will go here
- */
 define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/ojresponsiveknockoututils', 'ojs/ojrouter', 'ojs/ojarraydataprovider', 'ojs/ojknockouttemplateutils', 'ojs/ojmodule-element', 'ojs/ojknockout', 'ojs/ojinputtext', 'ojs/ojpictochart', 'ojs/ojlegend'],
   function (ko, moduleUtils, ResponsiveUtils, ResponsiveKnockoutUtils, Router, ArrayDataProvider, KnockoutTemplateUtils) {
     function ControllerViewModel() {
@@ -93,7 +84,7 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
       // Application Name used in Branding Area
       self.appName = ko.observable("App Name");
       // User Info used in Global Navigation area
-      self.userLogin = ko.observable("john.hancock@oracle.com");
+      self.userLogin = ko.observable("john.dow@johndow.com");
 
       // Footer
       function footerLink(name, id, linkTarget) {
@@ -103,10 +94,10 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
       }
       self.footerLinks = ko.observableArray([
         new footerLink('About Artificial Renaissance itself', 'aboutARISE', 'https://pirogove.blogspot.com'),
-        new footerLink('Contact Us', 'contactUs', 'http://www.oracle.com/us/corporate/contact/index.html'),
-        new footerLink('Legal Notices', 'legalNotices', 'http://www.oracle.com/us/legal/index.html'),
-        new footerLink('Terms Of Use', 'termsOfUse', 'http://www.oracle.com/us/legal/terms/index.html'),
-        new footerLink('Your Privacy Rights', 'yourPrivacyRights', 'http://www.oracle.com/us/legal/privacy/index.html')
+        new footerLink('Contact Us', 'contactUs', 'https://pirogove.blogspot.com'),
+        new footerLink('Legal Notices', 'legalNotices', 'https://pirogove.blogspot.com'),
+        new footerLink('Terms Of Use', 'termsOfUse', 'https://pirogove.blogspot.com'),
+        new footerLink('Your Privacy Rights', 'yourPrivacyRights', 'https://pirogove.blogspot.com')
       ]);
 
       self.userMenuHandler = function (event) {
