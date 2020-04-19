@@ -22,11 +22,11 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojresponsiveutils', 'ojs/
       // Media queries for repsonsive layouts
       var smQuery = ResponsiveUtils.getFrameworkQuery(ResponsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY);
       self.smScreen = ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
-
+      self.isLoggedIn = false;
       // Router setup
       self.router = Router.rootInstance;
       self.router.configure({
-        'login': { label: 'Login', isDefault: true },
+        'login': { label: 'Login', isDefault: true, canExit: function() {return self.isLoggedIn;} },
         'approval': { label: 'Approval' },
         'calendar': { label: 'Calendar' },
         'documents_selector': { label: 'Documents' },
